@@ -5,7 +5,7 @@ import { combineReducers } from "redux";
 //combines the two reducers into a root reducers with 2 properties.
 const rootReducer = combineReducers({
   auth: authReducer,
-  projectReducer: projectReducer
+  project: projectReducer
 });
 
 export default rootReducer;
