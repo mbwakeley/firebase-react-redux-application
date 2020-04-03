@@ -1,6 +1,8 @@
 import React, { Component } from "react";
+import { createNewProject } from "../../store/actions/projectActions";
+import { connect } from "react-redux";
 
-export class CreateProject extends Component {
+class CreateProject extends Component {
   state = {
     title: "",
     content: ""
@@ -11,7 +13,7 @@ export class CreateProject extends Component {
   };
   handleSubmit = e => {
     e.preventDefault();
-    console.log(this.state);
+    this.props.createNewProject(this.state);
   };
 
   render() {
@@ -32,7 +34,7 @@ export class CreateProject extends Component {
             ></textarea>
           </div>
           <div className="input-field">
-            <button className="btn pink lighten-1 z-depth-0">Create</button>
+            <button className="btn blue z-depth-0">Create</button>
           </div>
         </form>
       </div>
@@ -40,4 +42,12 @@ export class CreateProject extends Component {
   }
 }
 
-export default CreateProject;
+//when we call props.createproject and pass in a project, its going to run the function
+//take in the project perform a dispatch and call the action creater(create project)
+const mapDispatchToProps = dispatch => {
+  return {
+    createNewProject: project => dispatch(createNewProject(project))
+  };
+};
+//null has to come first because there is no mapstatetoprops
+export default connect(null, mapDispatchToProps)(CreateProject);
