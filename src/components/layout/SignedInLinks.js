@@ -11,7 +11,7 @@ export default function SignedInLinks() {
         <NavLink to="/">Log Out</NavLink>
       </li>
       <li>
-        <NavLink to="/" className="btn btn-floating blue">
+        <NavLink to="/" className="btn btn-floating blue darken-4">
           MW
         </NavLink>
       </li>
